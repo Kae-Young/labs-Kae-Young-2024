@@ -12,5 +12,6 @@ int main(void) {
   // TODO - Initialise components and variables
   while (true) {
     // TODO - Repeated code here
+    // Test Github merge
   }
 }
