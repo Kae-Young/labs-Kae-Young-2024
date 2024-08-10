@@ -6,12 +6,11 @@
 
 #include "stdlib.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 
 int main(void) {
-  // TODO - Initialise components and variables
   while (true) {
-    // TODO - Repeated code here
-    // Test Github merge 2
+    printf("Hello world\r\n");
   }
 }
