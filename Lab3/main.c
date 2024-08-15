@@ -35,20 +35,20 @@ int main(void) {
       case 'r':
         gpio_put(RED_LED, !IS_RED_ON);
         IS_RED_ON = !IS_RED_ON;
-        printf("TOGGLE RED/r/n");
+        printf("TOGGLE RED\r\n");
         break;
       case 'g':
         gpio_put(GREEN_LED, !IS_GREEN_ON);
         IS_GREEN_ON = !IS_GREEN_ON;
-        printf("TOGGLE GREEN/r/n");
+        printf("TOGGLE GREEN\r\n");
         break;
       case 'b':
         gpio_put(BLUE_LED, !IS_BLUE_ON);
         IS_BLUE_ON = !IS_BLUE_ON;
-        printf("TOGGLE BLUE/r/n");
+        printf("TOGGLE BLUE\r\n");
         break;
       default:
-        printf("UNRECOGNIZED INPUT/r/n");
+        printf("UNRECOGNIZED INPUT\r\n");
         break;
       }
     }
