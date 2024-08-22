@@ -6,7 +6,7 @@
 
 #include "pico/stdlib.h"
 #include <stdbool.h>
-
+#include "hardware/pwm.h"
 
 int main(void) {
   // TODO - Initialise components and variables
