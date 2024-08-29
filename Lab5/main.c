@@ -18,6 +18,7 @@
 #define BLUE_LED                13
 #define GREEN_LED               12
 #define RED_LED                 11
+#define PWR_INCREMENT           10
 
 int main(void) {
   // Initialize serial usb io
@@ -32,16 +33,19 @@ int main(void) {
   gpio_init(BLUE_LED);
   gpio_set_dir(BLUE_LED, GPIO_OUT);
   gpio_set_function(BLUE_LED, GPIO_FUNC_PWM);
+  int blue_pwr = 0;
 
   // Configure red LED
   gpio_init(RED_LED);
   gpio_set_dir(RED_LED, GPIO_OUT);
   gpio_set_function(RED_LED, GPIO_FUNC_PWM);
+  int red_pwr = 0;
 
   // Configure green LED
   gpio_init(GREEN_LED);
   gpio_set_dir(GREEN_LED, GPIO_OUT);
   gpio_set_function(GREEN_LED, GPIO_FUNC_PWM);
+  int green_pwr = 0;
 
   // Configure floating pin 15
   gpio_init(15);
@@ -73,7 +77,36 @@ int main(void) {
           CONTENT_OF(REG_PAD_CONTROL_GPIO15) |= ~CTRL_PDE;
           break;
         
+        case 'r':
+        if((red_pwr-PWR_INCREMENT)>=0)  {
+          red_pwr = red_pwr - PWR_INCREMENT;
+          pwm_set_gpio_level(RED_LED, red_pwr)
+        }
+          break;
+
+        case 'R':
+          break;
+
+        case 'b':
+          break;
+        
+        case 'B':
+          break;
+
+        case 'g':
+          break;
+
+        case 'G':
+          break;
+
         default:
+          printf("Valid options are:\r\n
+                  u - Pin 15 to pull up\r\n
+                  d - Pin 15 to pull down\r\n
+                  o - Pin 15 to pull none\r\n
+                  R/r - Red LED inc/dcr\r\n
+                  B/b - Blue LED inc/dcr\r\n
+                  G/g - Green LED inc/dcr\r\n")
           break;
       }
     }
